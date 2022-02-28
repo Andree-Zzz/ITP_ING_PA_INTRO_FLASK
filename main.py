@@ -1,7 +1,4 @@
-from ast import parse
 from datetime import datetime
-from operator import concat
-from xml.dom.expatbuilder import parseString
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -22,7 +19,7 @@ def editarContacto(contactoId):
     return render_template(
         'contactos/editar.html',
         contactoId = contactoId,
-        edad = edad,
+        edad = edad
     )
 
 app.run(debug=True)
