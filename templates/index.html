@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,21 @@
     <title>Inicio</title>
 </head>
 <body>
-    <h1>Estas en la pagina de Inicio desde un Template</h1>
+    <h1>Estas en la pagina de Inicio desde un Template: {{ productos[1]['nombre'] }}</h1>
+    <a href="{{ url_for('crearProducto') }}">Crear</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>PRECIO</th>
+        </tr>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto['id'] }}</td>
+            <td>{{ producto['nombre'] }}</td>
+            <td>{{ producto['precio'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
