@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="es-ES">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
     <h1>Estas en la pagina de Inicio desde un Template: {{ productos[1]['nombre'] }}</h1>
     <a href="{{ url_for('crearProducto') }}">Crear</a>
     <table>
@@ -23,5 +19,4 @@
         </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+{% endblock %}

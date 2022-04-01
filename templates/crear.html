@@ -1,24 +1,35 @@
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear producto</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block estilos %}
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/crear_style.css') }}">
+{% endblock %}
+
+{% block titulo %}Crear{% endblock %}
+
+{% block contenido %}
     <h1>Crear producto</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
     <a href="{{ url_for('index') }}">Inicio</a>
     <form action="{{ url_for('crearProductoPost') }}" method="POST">
         <div>
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre">
+            <input type="text" name="nombre" value="{{ nombre }}">
         </div>
         <div>
             <label for="precio">Precio</label>
-            <input type="text" name="precio">
+            <input type="number" name="precio" value="{{ precio }}">
         </div>
 
         <button type="submit">Guardar</button>
     </form>
-</body>
-</html>
+{% endblock %}
